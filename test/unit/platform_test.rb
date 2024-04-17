@@ -34,7 +34,9 @@ class PlatformTest < Minitest::Test
   test "implements ==" do
     platform = Browser::Platform.new(Browser["IOS9"])
 
-    assert_equal :ios, platform
+    # rubocop:disable Minitest/LiteralAsActualArgument
+    assert_equal platform, :ios
+    # rubocop:enable Minitest/LiteralAsActualArgument
     refute_equal platform, :android
   end
 
