@@ -28,9 +28,9 @@ jobs:
           - gemfiles/6_0.gemfile
 
     steps:
-      - uses: actions/checkout@v2.4.0
+      - uses: actions/checkout@v4
 
-      - uses: actions/cache@v2
+      - uses: actions/cache@v4
         with:
           path: vendor/bundle
           key: >
