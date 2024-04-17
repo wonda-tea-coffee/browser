@@ -12,7 +12,7 @@ on:
 jobs:
   build:
     name: Tests with Ruby ${{ matrix.ruby }} and ${{ matrix.gemfile }}
-    runs-on: "ubuntu-latest"
+    runs-on: "ubuntu-22.04"
     if: |
       github.actor == 'dependabot[bot]' && github.event_name == 'pull_request_target' ||
       github.actor != 'dependabot[bot]'
