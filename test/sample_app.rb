@@ -23,6 +23,8 @@ class SampleApp < Rails::Application
   config.secret_key_base = "99f19f08db7a37bdcb9d6701f54dca"
   config.eager_load = true
   config.active_support.deprecation = :log
+  puts Rails.version
+  config.load_defaults Rails.version.split(".")[..1].join(".")
 
   # Introduced by Rails 6.
   config.hosts << "example.org" if config.respond_to?(:hosts)
