@@ -29,6 +29,7 @@ class AlipayTest < Minitest::Test
 
   test "detects version by range" do
     browser = Browser.new(Browser["ALIPAY_IOS"])
+
     assert browser.alipay?(%w[>=2 <3])
   end
 end

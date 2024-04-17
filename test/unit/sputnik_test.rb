@@ -17,6 +17,7 @@ class SputnikTest < Minitest::Test
 
   test "detects version by range" do
     browser = Browser.new(Browser["SPUTNIK"])
+
     assert browser.sputnik?(%w[>=4 <5])
   end
 end

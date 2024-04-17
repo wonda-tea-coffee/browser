@@ -49,6 +49,7 @@ class GoogleSearchAppTest < Minitest::Test
 
   test "detects version by range (iPad)" do
     browser = Browser.new(Browser["GOOGLE_SEARCH_APP_IPAD"])
+
     assert browser.google_search_app?(%w[>=102 <103])
   end
 end
