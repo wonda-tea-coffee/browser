@@ -5,7 +5,7 @@ require "test_helper"
 class MetaTest < Minitest::Test
   class CustomRule < Browser::Meta::Base
     def meta
-      "custom" if /Custom/.match?(browser.ua)
+      "custom" if browser.ua.include?("Custom")
     end
   end
 
