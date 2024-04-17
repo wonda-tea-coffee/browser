@@ -6,31 +6,37 @@ class BotsTest < Minitest::Test
   Browser.bot_user_agents.each do |key, ua|
     test "detects #{key} as bot" do
       browser = Browser.new(ua)
+
       assert browser.bot?
     end
   end
 
   test "does not detect as bot" do
     browser = Browser.new(Browser["CHROME"])
+
     refute browser.bot?
   end
 
   test "returns bot name" do
     browser = Browser.new(Browser["GOOGLE_BOT"])
+
     assert_equal "Google Bot", browser.bot.name
 
     browser = Browser.new(Browser["FACEBOOK_BOT"])
+
     assert_equal "Facebook Bot", browser.bot.name
   end
 
   test "returns nil for non-bots" do
     browser = Browser.new(Browser["CHROME"])
+
     assert_nil browser.bot.name
   end
 
   Browser.search_engine_user_agents.each do |key, ua|
     test "detects #{key} as search engine" do
       browser = Browser.new(ua)
+
       assert browser.bot.search_engine?
     end
   end
@@ -64,9 +70,11 @@ class BotsTest < Minitest::Test
 
   test "extends list in runtime" do
     browser = Browser.new("Faraday/0.9.2")
+
     refute browser.bot?
 
     Browser::Bot.bots["faraday"] = "Faraday"
+
     assert browser.bot?
 
     Browser::Bot.bots.delete("faraday")

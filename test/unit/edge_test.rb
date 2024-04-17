@@ -105,6 +105,7 @@ class EdgeTest < ActionController::TestCase
 
   test "detects version by range" do
     browser = Browser.new(Browser["MS_EDGE_IOS"])
+
     assert browser.edge?(%w[>=43 <45])
   end
 end

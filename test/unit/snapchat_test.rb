@@ -35,6 +35,7 @@ class SnapchatTest < Minitest::Test
 
   test "detects version by range" do
     browser = Browser.new(Browser["SNAPCHAT"])
+
     assert browser.snapchat?(%w[>=10])
   end
 end

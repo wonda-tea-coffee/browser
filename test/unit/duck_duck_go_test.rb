@@ -5,6 +5,7 @@ require "test_helper"
 class DuckDuckGoTest < Minitest::Test
   test "detects DuckDuckGo on iOS device" do
     browser = Browser.new(Browser["DUCKDUCKGO_BROWSER_IOS"])
+
     assert browser.duck_duck_go?
     refute browser.safari?
     refute browser.chrome?
@@ -16,6 +17,7 @@ class DuckDuckGoTest < Minitest::Test
 
   test "detects DuckDuckGo on Android device" do
     browser = Browser.new(Browser["DUCKDUCKGO_BROWSER_ANDROID"])
+
     assert browser.duck_duck_go?
     refute browser.safari?
     refute browser.chrome?
@@ -26,12 +28,14 @@ class DuckDuckGoTest < Minitest::Test
 
   test "detects correct version" do
     browser = Browser.new(Browser["DUCKDUCKGO_BROWSER_IOS"])
+
     assert_equal "7", browser.full_version
     assert_equal "7", browser.version
   end
 
   test "detects version by range" do
     browser = Browser.new(Browser["DUCKDUCKGO_BROWSER_IOS"])
+
     assert browser.duck_duck_go?(%w[>=7 <8])
   end
 end

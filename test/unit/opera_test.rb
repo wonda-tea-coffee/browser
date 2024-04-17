@@ -27,26 +27,31 @@ class OperaTest < Minitest::Test
 
   test "detects opera mini" do
     browser = Browser.new(Browser["OPERA_MINI"])
+
     assert browser.opera_mini?
   end
 
   test "detects opera mini version by range" do
     browser = Browser.new(Browser["OPERA_MINI"])
+
     assert browser.opera_mini?(%w[>=11 <12])
   end
 
   test "detects opera mobi" do
     browser = Browser.new(Browser["OPERA_MOBI"])
+
     assert browser.opera?
   end
 
   test "detects opera running in Android" do
     browser = Browser.new(Browser["OPERA_ANDROID"])
+
     assert browser.platform.android?
   end
 
   test "detects version by range" do
     browser = Browser.new(Browser["OPERA"])
+
     assert browser.opera?(%w[>=11 <12])
   end
 end

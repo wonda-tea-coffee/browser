@@ -40,6 +40,7 @@ class ChromeTest < Minitest::Test
 
   test "detects chrome os" do
     browser = Browser.new(Browser["CHROME_OS"])
+
     assert browser.platform.chrome_os?
   end
 
@@ -69,6 +70,7 @@ class ChromeTest < Minitest::Test
 
   test "detects version by range" do
     browser = Browser.new(Browser["CHROME"])
+
     assert browser.chrome?(%w[>=5 <6])
   end
 end

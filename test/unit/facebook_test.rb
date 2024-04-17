@@ -35,6 +35,7 @@ class FacebookTest < Minitest::Test
 
   test "detects version by range" do
     browser = Browser.new(Browser["FACEBOOK"])
+
     assert browser.facebook?(%w[>=135])
   end
 end

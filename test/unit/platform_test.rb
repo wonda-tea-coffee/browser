@@ -16,23 +16,26 @@ class PlatformTest < Minitest::Test
   test "extends matchers" do
     Browser::Platform.matchers.unshift(CustomPlatform)
     platform = Browser::Platform.new("Custom")
+
     assert_equal :custom, platform.id
 
     Browser::Platform.matchers.shift
     platform = Browser::Platform.new("Custom")
+
     assert_equal :unknown_platform, platform.id
   end
 
   test "implements to_s" do
     platform = Browser::Platform.new(Browser["IOS9"])
+
     assert_equal "ios", platform.to_s
   end
 
   test "implements ==" do
     platform = Browser::Platform.new(Browser["IOS9"])
 
-    assert platform == :ios
-    refute platform == :android
+    assert_equal :ios, platform
+    refute_equal platform, :android
   end
 
   test "detects unknown platforms" do
@@ -113,6 +116,7 @@ class PlatformTest < Minitest::Test
 
   test "returns stub version for Mac user agent without version" do
     platform = Browser::Platform.new("Macintosh")
+
     assert_equal "0", platform.version
   end
 

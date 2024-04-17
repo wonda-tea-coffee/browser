@@ -18,6 +18,7 @@ class SamsungBrowserTest < Minitest::Test
 
   test "detects version by range" do
     browser = Browser.new(Browser["SAMSUNG_BROWSER"])
+
     assert browser.samsung_browser?(%w[>=11 <12])
   end
 end

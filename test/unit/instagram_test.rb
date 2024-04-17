@@ -25,6 +25,7 @@ class InstagramTest < Minitest::Test
 
   test "detects version by range" do
     browser = Browser.new(Browser["INSTAGRAM"])
+
     assert browser.instagram?(%w[>=41])
   end
 end
